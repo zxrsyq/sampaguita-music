@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    margin: 0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+button {
+    background: #111;
+    color: white;
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #292929;
+}
+</style>
+</head>
+
+<body>
+
+<button id="musicButton">▶ PLAY MUSIC</button>
+
+<audio id="music" loop>
+    <source
+        src="Sampaguita%20Scene%20Gagamboy%20Papunta%20sa%20Gagamba-Verse.mp3"
+        type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("music");
+const button = document.getElementById("musicButton");
+
+button.addEventListener("click", async () => {
+    if (music.paused) {
+        await music.play();
+        button.textContent = "❚❚ PAUSE MUSIC";
+    } else {
+        music.pause();
+        button.textContent = "▶ PLAY MUSIC";
+    }
+});
+</script>
+
+</body>
+</html>
